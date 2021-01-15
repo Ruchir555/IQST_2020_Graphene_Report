@@ -1,0 +1,217 @@
+					Graphene:
+					
+\textbf{Rational synthesis of atomically precise graphene nanoribbons directly on metal oxide surfaces}
+https://science.sciencemag.org/content/369/6503/571?utm_campaign=fr_sci_2020-06-25&et_rid=34818043&et_cid=3379411
+
+\textbf{Topological band engineering of graphene nanoribbons}
+https://www.nature.com/articles/s41586-018-0376-8
+
+\textbf{Quantum dot states and optical excitations of edge-modulated graphene nanoribbons}
+https://doi.org/10.1103/PhysRevB.84.041401 
+
+\textbf{Exciton–exciton annihilation and biexciton stimulated emission in graphene nanoribbons}
+https://doi.org/10.1038/ncomms11010
+
+\textbf{Effect of Point Defects on Optical Properties of Graphene Fluoride: A First-Principles Study}
+https://pubs.acs.org/doi/full/10.1021/acs.jpcc.7b03949
+
+\textbf{A Review on Lattice Defects in Graphene: Types, Generation, Effects and Regulation}	https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6190370/
+
+\textbf{Band dispersion of graphene with structural defects}
+https://arxiv.org/pdf/1811.00087.pdf
+
+
+
+
+
+					QDs:
+\textbf{Single photon emission from graphene quantum dots at room temperature}
+https://www.nature.com/articles/s41467-018-05888-w
+
+\textbf{Quantum dots and spin qubits in graphene}
+https://iopscience.iop.org/article/10.1088/0957-4484/21/30/302001/meta?casa_token=RAOPwQ2k8O8AAAAA:fQUfXkPHK6GYcx9Jna8aHSVaE2g0ykRaaCES5gu8i04rizoOvHAOhKAWlAtUqkfkygCL-j81J_Sf#nano353828bib40
+
+\textbf{Spin Coherence in Graphene Quantum Dots}
+http://www.theo.physik.uni-konstanz.de/burkard/sites/default/files/pdf/DiplomaThesis_Matthias-Droth.pdf
+
+\textbf{Spin qubits in graphene quantum dots}
+https://www.nature.com/articles/nphys544
+
+
+
+					hBN:
+
+\textbf{Identifying carbon as the source of visible single-photon emission from hexagonal boron }
+https://www.nature.com/articles/s41563-020-00850-y
+
+\textbf{hBN Cavity Optomechanics}
+https://arxiv.org/pdf/1809.04023.pdf
+https://pubs.acs.org/doi/abs/10.1021/acs.nanolett.8b04956#
+
+\textbf{Quantum Emission From Hexagonal Boron Nitride Monolayers}
+https://arxiv.org/pdf/1504.06521.pdf
+
+\textbf{Engineering spin defects in hexagonal boron nitride}
+https://arxiv.org/ftp/arxiv/papers/2004/2004.07968.pdf
+
+\textbf{Ultraviolet to Near-infrared Single Photon Emitters in hBN}
+https://arxiv.org/abs/1908.06578
+
+
+
+
+
+					CNTs:
+
+\textbf{Tunable room-temperature single-photon emission at telecom wavelengths from sp3 defects in carbon nanotubes}
+https://www.nature.com/articles/nphoton.2017.119
+
+\textbf{Room-temperature single-photon generation from solitary dopants of carbon nanotubes}
+https://www.nature.com/articles/nnano.2015.136
+
+\textbf{Electronic Structure and Chemical Nature of Oxygen Dopant States in Carbon Nanotubes}
+https://pubs.acs.org/doi/10.1021/nn504553y
+
+\textbf{A DFT study of the interplay between dopants and oxygen functional groups over the graphene basal plane – implications in energy-related applications}
+https://pubs.rsc.org/en/content/articlelanding/2017/CP/C7CP00344G#!divAbstract
+
+
+
+
+					WSe2:
+
+\textbf{Spectral and spatial isolation of single WSe2 quantum emitters using hexagonal boron nitride wrinkles}
+https://arxiv.org/abs/2005.07013
+
+\textbf{Integration of single photon emitters in 2D layered materials with a silicon nitride photonic chip}
+https://www.nature.com/articles/s41467-019-12421-0
+
+\textbf{Electrically pumped single-defect light emitters in WSe2}
+http://dx.doi.org/10.1088/2053-1583/3/2/025038 
+
+\textbf{Electrically driven photon emission from individual atomic defects in monolayer WS2}
+https://arxiv.org/pdf/1910.04612.pdf
+
+
+
+
+
+					WTe2:
+
+\textbf{Influence of point defects on the electronic and topological properties of monolayer WTe2}
+https://journals.aps.org/prb/abstract/10.1103/PhysRevB.102.041103
+
+
+					C3N:
+
+\textbf{Structural, electronic and magnetic properties of point defects in polyaniline (C3N) and graphene monolayers: A comparative study}
+https://arxiv.org/pdf/2005.04419.pdf
+
+
+
+					MoS2:
+
+\textbf{Electronic structures and magnetic properties of MoS2 nanostructures: atomic defects, nanoholes, nanodots and antidots}
+https://doi.org/10.1039/C3CP50381J 
+
+
+					Other:
+
+\textbf{Graphene oxide based BCNO hybrid nanostructures: tunable band gaps for full colour white emission}
+https://doi.org/10.1039/C4RA02775B
+
+
+
+Plasmonics:
+
+
+\textbf{Quantum Computing with Graphene Plasmons:}
+https://doi.org/10.1038/s41534-019-0150-2 
+
+\textbf{Single-Photon Nonlinear Optics with Graphene Plasmons}	https://doi.org/10.1103/PhysRevLett.111.247401 
+
+\textbf{Plasmon Blockade in Nanostructured Graphene}
+https://doi.org/10.1021/nn204701w 
+
+\textbf{Graphene Plasmonics: A Platform for Strong Light–Matter Interactions}
+https://doi.org/10.1021/nl201771h 
+
+\textbf{Quantum computing with graphene plasmons}
+https://www.nature.com/articles/s41534-019-0150-2
+
+\textbf{Single-Photon Nonlinear Optics with Graphene Plasmons}
+https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.111.247401
+
+\textbf{Plasmon Blockade in Nanostructured Graphene}
+https://pubs.acs.org/doi/10.1021/nn204701w
+
+\textbf{Graphene Plasmonics: A Platform for Strong Light–Matter Interactions}
+https://pubs.acs.org/doi/10.1021/nl201771h
+
+
+					General:
+\textbf{Advances in quantum light emission from 2D materials}
+https://www.degruyter.com/view/journals/nanoph/8/11/article-p2017.xml
+
+\textbf{Optical properties of honeycomb photonic structures}
+https://journals.aps.org/pra/abstract/10.1103/PhysRevA.95.063837
+
+\textbf{Multiple Dirac fermions from a topological insulator and graphene superlattice}
+https://journals.aps.org/prb/abstract/10.1103/PhysRevB.85.045307
+
+\textbf{Two-Photon Spontaneous Emission in Atomically Thin Plasmonic Nanostructures}
+https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.125.033601
+
+\textbf{2D materials for quantum information science}
+https://doi.org/10.1038/s41578-019-0136-x 
+
+\textbf{Topological Photonics}
+https://arxiv.org/abs/1802.04173
+
+					
+					Notes:
+					
+\textbf{Graphene tight binding model tutorial}
+https://www.weizmann.ac.il/condmat/oreg/sites/condmat.oreg/files/uploads/2015/tutorial_1.pdf
+
+
+\textbf{Master’s course notes on graphene}
+http://www.acmm.nl/molsim/han/2015/brocks_notes.pdf
+
+
+\textbf{Tight binding model for graphene}
+https://cpb-us-w2.wpmucdn.com/u.osu.edu/dist/3/67057/files/2018/09/graphene_tight-binding_model-1ny95f1.pdf
+
+\textbf{Lecture 5: Graphene: Electronic band structure and Dirac fermions}
+http://web.physics.ucsb.edu/~phys123B/w2015/leggett-lecture.pdf
+
+\textbf{The electronic properties of graphene}
+https://journals.aps.org/rmp/abstract/10.1103/RevModPhys.81.109
+
+
+
+
+
+
+
+					Software:
+\textbf{Quantum Espresso}
+https://www.quantum-espresso.org/resources/tutorials
+
+\textbf{Burai}
+https://nisihara.wixsite.com/burai
+
+
+
+					DFT Textbook:
+\textbf{/Density-Functional-Theory-Practical-Introduction}
+https://www.amazon.ca/Density-Functional-Theory-Practical-Introduction/dp/0470373172/ref=sr_1_1?keywords=Density+Functional+Theory%3A+A+Practical+Introduction+by+David+Sholl+and+Janice+A+Steckel&qid=1576262118&s=books&sr=1-1  
+
+
+
+
+
+
+
+
+
