@@ -24,8 +24,12 @@ footskip=.25in]{geometry}
 %	filecolor=black,
 %	linkcolor=green,
 %	urlcolor=black,
+	breaklinks,
 	linktocpage
 }
+\usepackage[hyphenbreaks]{breakurl}
+\usepackage{url}
+\def\UrlBreaks{\do/}
 \setlength\parindent{0cm}
 	
 %References using Citatonsy
@@ -50,7 +54,7 @@ footskip=.25in]{geometry}
 Graphene is a two-dimensional honeycomb lattice of carbon atoms. Graphene is known for its exceptional electronic and structural properties \cite{The_Electronic_Properties_of_Graphene, Properties_of_graphene:_a_theoretical_perspective}. Up until the last decade, it was believed that isolated graphene sheets could not exist due to thermal and other excitations \cite{Lecture5}. However in 2004, Geim et al. demonstrated that isolated graphene sheets exist, and could be observed using simple spectroscopy \cite{Graphene_Scotch_Tape}. Since then, graphene has been an active area of research, with potential applications in quantum networks, semiconductor physics, condensed matter physics, chemistry, and electrical engineering \cite{Properties_of_graphene:_a_theoretical_perspective}. 
 \newline
 
-In this report, we will discuss the electronic structure of graphene, and how its properties can be understood in terms of the tight binding model. Then, we will look at several different promising single photon quantum emitter candidates, including graphene, hexagonal boron nitride (hBN), and several transition metal dichalcogenides (TMDCs). Finally, we will look at some DFT simulations performed using \textit{Quantum Espresso} \cite{quantum_espresso} which look at the band gap and density of states of a few promising candidates for single photon quantum emitters. 
+In this report, we will discuss the electronic structure of graphene, and how its properties can be understood in terms of the tight binding model. Then, we will look at several different promising single photon quantum emitter candidates, including graphene, hexagonal boron nitride (hBN), and several transition metal dichalcogenides (TMDCs). Finally, we will look at some DFT simulations performed using \textit{Quantum Espresso} \cite{quantum_espresso} which look at the bandgap and density of states of a few promising candidates for single photon quantum emitters. 
 
 
 
@@ -114,7 +118,7 @@ The tight-binding model (see section \ref{sec: Tight Bonding} for more informati
 
 The factors of $\hbar$ have been suppressed. Here, $a_{\sigma, i}$ annihilates an electron with spin $\sigma$ at site $R_i$ on sublattice A \cite{The_Electronic_Properties_of_Graphene}; similarly, $a_{\sigma, i}^\dagger$ is the creation operator. A similar definition is applicable to sublattice B as well. Here, $t \approx 2.8 eV$ is the nearest neighbor hopping energy (hopping between different sublattices), and $t^{'}$ is the next nearest neighbor hopping energy\footnotemark (hopping in the same sublattice) \cite{The_Electronic_Properties_of_Graphene}. The energy bands resulting from this Hamiltonian are of the form:
 
-\footnote{The value of $t^{'}$ obtained from ab-initio calculations ranges from $0.02t \leq t^{'} \leq 0.2t$ \cite{The_Electronic_Properties_of_Graphene}.}
+\footnotetext{The value of $t^{'}$ obtained from ab-initio calculations ranges from $0.02t \leq t^{'} \leq 0.2t$ \cite{The_Electronic_Properties_of_Graphene}.}
 
 \begin{align}\label{eq:Full_Band_Equation}
 	&E_{\pm}(k) = \pm t\sqrt{3+f(k)} -t^{'}f(k) \\
@@ -133,7 +137,7 @@ In the nearest neighbor approximation this reduces to \cite{Properties_of_graphe
 Here, $\gamma_0$ is the transfer integral energy between nearest neighbors \cite{Properties_of_graphene:_a_theoretical_perspective}. 
 \newline
 
-As can be seen from Figure \ref{fig: Graphene Band}, the $\pi$ and $\pi^*$ bands are degenerate near the Dirac points as given by equation \ref{eq: Dirac Points}. Taylor expanding the energy dispersion relation in equation \ref{eq:Full_Band_Equation} near these points \footnotemark leads to the following dispersion relation:
+As can be seen from Figure \ref{fig: Graphene Band}, the $\pi$ and $\pi^*$ bands are degenerate near the Dirac points as given by equation \ref{eq: Dirac Points}. Taylor expanding the energy dispersion relation in equation \ref{eq:Full_Band_Equation} near these points\footnotemark leads to the following dispersion relation:
 
 \begin{equation}\label{eq: Linear_Dispersion_Graphene}
 	E_{\pm}(q) \approx \pm \frac{3ta}{2} |q| + \mathcal{O}((q/K)^2) = \pm v_F |q| + \mathcal{O}((q/K)^2)
@@ -145,7 +149,7 @@ Here, $v_F$ represents the Fermi velocity, with $v_F \approx 10^6 \ m/s$ \cite{W
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[scale = 0.8]{Graphene_Band_Structure.PNG}
+	\includegraphics[scale = 0.7]{Graphene_Band_Structure.PNG}
 	\caption{Band structure of graphene. Here, $t^{'} = 0$; we can thus see that the bands are symmetric around zero energy. The points where the bands touch are known as \textit{Dirac points}. }
 	\label{fig: Graphene Band}
 \end{figure}
@@ -239,12 +243,12 @@ This results in a quadratic dispersion relation:
 	E_{M, \pm} = \pm \sqrt{q_x^2 + q_y^2 + M^2}
 \end{equation} 
 
-This dispersion relation results in the creation of a band gap, as can be seen in Figure \ref{fig: monolayer_bandgap}.
+This dispersion relation results in the creation of a bandgap, as can be seen in Figure \ref{fig: monolayer_bandgap}.
 
 \begin{figure}[htb]
 	\centering
 	\includegraphics[scale = 0.7]{monolayer_bandgap.PNG}
-	\caption{Energy band gap near a Dirac point produced by a $\sigma_z$ term. Figure and caption have been adapted from \cite{graphene_tight_bonding}.}
+	\caption{Energy bandgap near a Dirac point produced by a $\sigma_z$ term. Figure and caption have been adapted from \cite{graphene_tight_bonding}.}
 	\label{fig: monolayer_bandgap}
 \end{figure}
 
@@ -257,8 +261,7 @@ The full form of the Density of States\footnotemark for the dispersion relation 
 	\rho(E) = \frac{2A_c |E|}{\pi v_F^2}
 \end{equation}
 
-Here, $A_c = 3\sqrt{3}a^2/2$ is the unit cell area. As is apparent from Figure \ref{fig: Monolayer_graphene_dos}, monolayer graphene does not permit an energy band gap, and hence may not necessarily be directly applicable as-is for quantum information applications.
-
+Here, $A_c = 3\sqrt{3}a^2/2$ is the unit cell area. As is apparent from Figure \ref{fig: Monolayer_graphene_dos}, monolayer graphene does not permit an energy bandgap, and hence may not necessarily be directly applicable as-is for quantum information applications.
 
 \begin{figure}[htb]
 	\centering
@@ -269,7 +272,8 @@ Here, $A_c = 3\sqrt{3}a^2/2$ is the unit cell area. As is apparent from Figure \
 
 
 \subsection{Bilayer Graphene}\label{sec: bilayer_graphene}
-Bilayer graphene is composed of two monolayer graphene sheets stacked on one another. This presents interesting electrical and optical properties, in particular that of a band gap between the valence and conduction bands.
+Bilayer graphene is composed of two monolayer graphene sheets stacked on one another. This presents interesting electrical and optical properties, in particular that of a bandgap between the valence and conduction bands.
+\newline
 
 \begin{figure}[htb]
 	\centering
@@ -278,7 +282,9 @@ Bilayer graphene is composed of two monolayer graphene sheets stacked on one ano
 	\label{fig: Bilayer_graphene}
 \end{figure}
 
-The tight-binding Hamiltonian for bilayer graphene with hopping parameters $\gamma_i$ is \cite{The_Electronic_Properties_of_Graphene}:
+The tight-binding Hamiltonian for bilayer graphene with hopping parameters\footnotemark $\gamma_i$ is \cite{The_Electronic_Properties_of_Graphene}:
+
+\footnotetext{See Figure \ref{fig: Bilayer_graphene} for a visualization of these hopping parameters.}
 
 \begin{align}
 	H = -\gamma_0 &\sum_{<i,j>, m, \sigma} \bigg( a_{m, i, \sigma}^\dagger b_{m, j, \sigma} + h.c. \bigg )\\
@@ -311,7 +317,7 @@ In the continuum limit, the Hamiltonian close to the Dirac points in the Brillou
 Here, $k \in \mathbb{C}$ is a complex number, and $V$ is half the shift in electro-chemical potential between the two layers (this is in case a potential is applied between the two layers) \cite{The_Electronic_Properties_of_Graphene}. The wavefunction can thus be written as a four-component spinor:
 
 \begin{equation}
-	\psi_k^{\dagger} = \bigg ( a_1^{\dagger}(k), a_2^{\dagger}(k), b_1^{\dagger}(k), b_2^{\dagger}(k) \bigg )
+	\psi_k^{\dagger} = \bigg ( a_1^{\dagger}(k), \ a_2^{\dagger}(k), \ b_1^{\dagger}(k), \ b_2^{\dagger}(k) \bigg )
 \end{equation}
 
 In the case of zero external potential between the two layers ($V=0$) and $\gamma_3, v_F k << \gamma_1$, it is possible to remove high-energy states perturbatively and write an effective Hamiltonian \cite{The_Electronic_Properties_of_Graphene}.
@@ -330,14 +336,14 @@ In the $\gamma_3 = 0$ case, the energy bands derived are parabolic:
 	E_{k, \pm} \approx \pm v_F^2 k^2 / \gamma_1
 \end{equation}
 
-The resulting energy bands are shown in Figure \ref{fig: Bilayer_touching_bands}. Two additional bands are also seen at $\pm \gamma_1$; we can see that this spectrum is electron-hole symmetric. The bilayer can be treated as a metal (zero band gap), with a constant density of states \cite{The_Electronic_Properties_of_Graphene}. The introduction of the $V$ term breaks inversion symmetry, resulting in the following dispersion relation:
+The resulting energy bands are shown in Figure \ref{fig: Bilayer_touching_bands}. Two additional bands are also seen at $\pm \gamma_1$; we can see that this spectrum is electron-hole symmetric. The bilayer can be treated as a metal (zero bandgap), with a constant density of states \cite{The_Electronic_Properties_of_Graphene}. The introduction of the $V$ term breaks inversion symmetry, resulting in the following dispersion relation:
 
 \begin{align}
 	E_{\pm, k}^2 &= V^2 + v_F^2 k^2 + \gamma_1^2/2\\
 	&\pm \sqrt{4V^2 v_F^2 k^2 + t^2 v_F^2 k^2 + \gamma_1^4/4}
 \end{align}
 
-The resulting energy bands are shown in Figure \ref{fig: Bilayer_separate_bands}. Clearly, we see that the addition of the $V$ term introduces a band gap. The dependence of this band gap on an external potential $V$, which may be experimentally tuned, makes bilayer graphene useful for technological applications \cite{The_Electronic_Properties_of_Graphene}.
+The resulting energy bands are shown in Figure \ref{fig: Bilayer_separate_bands}. Clearly, we see that the addition of the $V$ term introduces a bandgap. The dependence of this bandgap on an external potential $V$, which may be experimentally tuned, makes bilayer graphene useful for technological applications \cite{The_Electronic_Properties_of_Graphene}.
 
 
 \begin{figure}[htb]
@@ -356,24 +362,24 @@ The resulting energy bands are shown in Figure \ref{fig: Bilayer_separate_bands}
 \end{figure}
 
 \subsection{Graphene Stacks}
-It has been shown experimentally that increasing the number of layers of graphene will result in more metallic behaviour \cite{The_Electronic_Properties_of_Graphene}. Certain types of four-layers stacks of graphene show a band gap in the presence of charge inhomogeneity between the surface and inner layers, but this does not apply in most cases. Example cases are shown in Figure \ref{fig: graphene_stack_bands}.
+It has been shown experimentally that increasing the number of layers of graphene will result in more metallic behaviour \cite{The_Electronic_Properties_of_Graphene}. Certain types of four-layers stacks of graphene show a bandgap in the presence of charge inhomogeneity between the surface and inner layers, but this does not apply in most cases. Example cases are shown in Figure \ref{fig: graphene_stack_bands}.
 \newline
 
 \begin{figure}[htb]
 	\centering
-	\includegraphics[scale = 0.6]{graphene_stack_bands.PNG}
+	\includegraphics[scale = 0.55]{graphene_stack_bands.PNG}
 	\caption{Electronic bands of graphene multilayers: top left: biased bilayer; top right: trilayer with Bernal stacking; bottom left: trilayer with orthorhombic stacking; bottom right: stack with four layers where the top and bottom layers are shifted in energy with respect to the two middle layers by $+0.1 \ eV$. Figure and caption have been adapted from \cite{The_Electronic_Properties_of_Graphene}. }
 	\label{fig: graphene_stack_bands}
 \end{figure}
 
-It is clear from Figure \ref{fig: graphene_stack_bands} that increasing the amount of layers of graphene stacks results in zero band gap systems. Hence, they are likely not a viable option for quantum information applications. 
+It is clear from Figure \ref{fig: graphene_stack_bands} that increasing the amount of layers of graphene stacks results in zero bandgap systems. Hence, they are likely not a viable option for quantum information applications. 
 
 
 \section{Promising Optical Systems}\label{sec: Promising_Optical_Systems}
 Here we look at promising nanoscale optical systems which could serve as reliable single photon emitter sources or spin qubits for quantum information processing applications.
 Defect states within such systems must also have a spin, and have good optical properties (see Figure \ref{fig: quantum_emitter_SPS}). Current systems used in research include color centers in diamond and silicon carbide, which feature spin-selective optical transitions, room temperature stability, exceptionally long coherence times, and potential for scalability \cite{Single_defect_emitters_WSe2}. Hence, any system chosen must match or exceed the performance of existing candidates to be viable for quantum information processing applications.
 
-\begin{figure}[h!]
+\begin{figure}[htb]
 	\centering
 	\includegraphics{quantum_emitter_SPS.PNG}
 	\caption{Schematic illustration of a single photon emitter operation. \textit{(a)} An isolated quantum system with a ground and an excited state is pumped using a laser (or electrically) and generates a flux of single photons.	\textit{(b)} Schematic illustration of a $g^2(\tau)$ function, with a dip at zero delay time, an indication of a quantum emitter. Figure and caption are from \cite{SP_sources_atomically_thin_materials_review}}
@@ -381,7 +387,7 @@ Defect states within such systems must also have a spin, and have good optical p
 \end{figure}
 
 \subsection{Graphene}
-Pristine monolayer graphene is not an optimal material for light emission due to its gapless band structure and high conductivity \cite{2D_material_nanophotonics_HBN_BANDGAP, The_Electronic_Properties_of_Graphene}. Point defect states within graphene may be considered as potential single photon quantum emitters (e.g.: graphene fluoride \cite{point_defects_graphene_fluoride}), however research is still being done to explore this possibility. There is potential in this approach, as graphene has a similar crystal structure to hBN, and can house many of the same defects. Additionally, the magnitude of spin-orbit coupling and electron-nuclear spin coupling\footnotemark are both weak in graphene \cite{spinning_edge_graphene, spin_qubits_GQD}, and hence can sustain coherent qubit states. 
+Pristine monolayer graphene is not an optimal material for light emission due to its gapless band structure and high conductivity \cite{2D_material_nanophotonics_HBN_BANDGAP, The_Electronic_Properties_of_Graphene}. Point defect states within graphene may be considered as potential single photon quantum emitters (e.g.: graphene fluoride \cite{point_defects_graphene_fluoride}), however research is still being done to explore this possibility. There is potential in this approach, as graphene has a similar crystal structure to hBN, and can accomodate many of the same defects. Additionally, the magnitude of spin-orbit coupling and electron-nuclear spin coupling\footnotemark are both weak in graphene \cite{spinning_edge_graphene, spin_qubits_GQD}, and hence graphene can sustain coherent qubit states. 
 
 \footnotetext{This is partly because natural carbon is made of 99\% \ce{^{12}C} and 1\% \ce{^{13}C} with nuclear spins of 0 and 1/2 respectively, thus resulting in weak coupling to nuclear spin \cite{spin_coherence_GQD_thesis}.}
 
@@ -434,10 +440,10 @@ Graphene nanoribbons (GNRs) are effectively 2D structures, with variable width a
 It may be possible to use nitrogen-vacancy type defects in GNRs as SPEs, however this has mainly been explored in terms of nanoelectronics applications \cite{spin_gapless_N_doped_ZGNR}. Nitrogen and boron were both explored as substitutional dopants in zizgag GNRs, showing the presence of quantum dots \cite{B_N_doped_GNR}. Edge-modulated armchair GNRs were also shown to have optically active quantum dot states, thus being potentially useful for optoelectronic applications \cite{QD_edge_modulated_GNR}. Biexciton states in GNRs also have the potential to be useful in photonics applications \cite{exciton_annihilation_GNR}. Oxygen dopants such as \ce{OH} groups \cite{oxygen_functional_groups_graphene}, as well as radical molecules (on the edges of GNRs) \cite{spinning_edge_graphene} have the potential to be a basis for spin qubits in GNRs, with the latter having spin coherence times on the order of microseconds at room temperature \cite{magnetic_edge_states_coherent_manipulation_GNR}. A downside to the latter implementation is that radical molecules, and in general organic functional groups, tend to be quite large.
 \newline
 
-Several studies have been made regarding the bandgap tuning of GNRs. One study showed the magnitude of the bandgap increases continuously to 4.66 eV by partially hydrogenating the graphene lattice \cite{bandgap_tuning_hydrogenated_graphene}. There seems to be an inverse proportionality between the width of GNRs and the size of the bandgap in armchair GNRs \cite{width_depedent_bandgap_AGNR, energy_bandgap_engineering_GNR}. In particular, it was shown in \cite{energy_gaps_armchair_AGNR} that the bandgap decreases as a function of the number of dimer lines across the ribbon width in armchair GNRs. Pristine nanoribbon forms tend to have smaller bandgaps, however manipulation of their atomic edges can lead to larger gaps \cite{bandgap_engineering_GNR_edge_dihydrogenation, Edge_passivation_AGNR_bandgap_engineering}. Graphene nanoribbons will always have dangling bonds in the carbon atoms located at the edges, therefore it is necessary to functionalize them with something; usually, this is hydrogen \cite{bandgap_engineering_GNR_edge_dihydrogenation, Edge_passivation_AGNR_bandgap_engineering}. In \cite{Edge_passivation_AGNR_bandgap_engineering}, it was shown that bandgaps of armchair GNRs varied over a range of 1.6 eV as a function of the \ce{sp^3}-like bonds at the edges. Topological bandgap engineering also provides a means to use topological phases in GNRs to precisely control the bandgap \cite{topological_band_engineering_GNR, engineering_topological_quantum_phases_GNR}. It may be possible to use topological phases in GNRs to induce exotic quantum states such as Majorana fermions, which could serve as qubit sources \cite{engineering_topological_quantum_phases_GNR}. The use of substrates is also a means to control graphene nanoribbon bandgap and the addition of defects \cite{synthesis_GNR_metal_oxide}. Hence, bandgap engineering of GNRs by edge manipulation can lead to desired electronic properties. 
+Several studies have been published regarding the bandgap tuning of GNRs. One study showed the magnitude of the bandgap increases continuously to 4.66 eV by partially hydrogenating the graphene lattice \cite{bandgap_tuning_hydrogenated_graphene}. There seems to be an inverse proportionality between the width of GNRs and the size of the bandgap in armchair GNRs \cite{width_depedent_bandgap_AGNR, energy_bandgap_engineering_GNR}. In particular, it was shown in \cite{energy_gaps_armchair_AGNR} that the bandgap decreases as a function of the number of dimer lines across the ribbon width in armchair GNRs. Pristine nanoribbon forms tend to have smaller bandgaps, however manipulation of their atomic edges can lead to larger gaps \cite{bandgap_engineering_GNR_edge_dihydrogenation, Edge_passivation_AGNR_bandgap_engineering}. Graphene nanoribbons will always have dangling bonds in the carbon atoms located at the edges, therefore it is necessary to functionalize them with something; usually, this is hydrogen \cite{bandgap_engineering_GNR_edge_dihydrogenation, Edge_passivation_AGNR_bandgap_engineering}. In \cite{Edge_passivation_AGNR_bandgap_engineering}, it was shown that bandgaps of armchair GNRs varied over a range of 1.6 eV as a function of the \ce{sp^3}-like bonds at the edges. Topological bandgap engineering also provides a means to use topological phases in GNRs to precisely control the bandgap \cite{topological_band_engineering_GNR, engineering_topological_quantum_phases_GNR}. It may be possible to use topological phases in GNRs to induce exotic quantum states such as Majorana fermions, which could serve as qubit sources \cite{engineering_topological_quantum_phases_GNR}. The use of substrates is also a means to control graphene nanoribbon bandgap and the addition of defects \cite{synthesis_GNR_metal_oxide}. Hence, bandgap engineering of GNRs by edge manipulation can lead to desired electronic properties. 
 \newline  
 
-Strain engineering also plays a role on the electronic structure of GNRs. in armchair GNRs, weak uniaxial strain was shown to change the bandgap linearly, but large strain resulted in a periodic oscillation of the bandgap; in zigzag GNRs, strain was found to change the spin polarization at the edges of GNR, thereby modulating the bandgap \cite{bandgap_strained_GNR}. 
+Strain engineering also plays a key role in the electronic structure of GNRs. in armchair GNRs, weak uniaxial strain was shown to change the bandgap linearly, but large strain resulted in a periodic oscillation of the bandgap; in zigzag GNRs, strain was found to change the spin polarization at the edges of GNR, thereby modulating the bandgap \cite{bandgap_strained_GNR}. Strain engineering can thus be exploited to achieve desired optoelectronic properties in GNRs.
 
 
 \subsubsection{Carbon Nanotubes}
@@ -455,10 +461,10 @@ However, there seems to be no evidence of narrow photoluminescence lines at room
 
 \subsection{Hexagonal Boron Nitride}
 
-Hexagonal boron nitride (hBN) is a wide-bandgap semiconductor ($\sim$6 eV \cite{2D_materials_for_quantum_information_science, hBN_cavity_optomechanics, SP_sources_atomically_thin_materials_review}) with a broad range of single photon emitters (SPEs) with zero phonon line (ZPL) energies in the NIR-visible range ($\sim$1.6–2.2 eV) and the UV range ($\sim$4.1 eV) \cite{SP_sources_atomically_thin_materials_review, ultrviolet_SPE_hBN}. However, ZPL energies in hBN defect emitters tend to be random between the range of $\sim$ 1.5 to 2.2 eV, with the ZPL width scaling exponentially with temperature \cite{SP_sources_atomically_thin_materials_review}. hBN has several defect states that enable room-temperature SPEs \cite{carbon_source_SPE_hBN, first_principles_quantum_emission_hBN, hBN_cavity_optomechanics, quantum_emission_hBN_monolayers, spin_defects_hBN, structural_electronic_properties_hBN}. For instance, the negatively charged boron vacancy center ($VB^{-}$) is a promising spin qubit candidate \cite{spin_defects_hBN, ab_initio_VBneg_hBN}, and the $C_B V_N$ defect (carbon atom substitutes a boron atom and the opposite nitrogen atom is removed) displays good experimental photoluminescence lineshape \cite{first_principles_quantum_emission_hBN}. The $V_B C_N$ defect was also predicted to have a triplet ground state, making it interesting for quantum-qubit operations \cite{hBN_Triplet_GS}. Other defects include nitrogen and boron vacancies \cite{quantum_emission_hBN_monolayers, spin_defects_hBN, ab_initio_VBneg_hBN} and nitrogen \cite{hBN_Triplet_GS}, carbon \cite{carbon_source_SPE_hBN, defective_graphene_domains_hBN}, and oxygen \cite{SPE_Plasma_treated_hBN} impurities \cite{SP_sources_atomically_thin_materials_review}.
+Hexagonal boron nitride (hBN) is a wide-bandgap semiconductor ($\sim$6 eV \cite{2D_materials_for_quantum_information_science, hBN_cavity_optomechanics, SP_sources_atomically_thin_materials_review}) with a broad range of single photon emitters (SPEs) with zero phonon line (ZPL) energies in the NIR-visible range ($\sim$1.6–2.2 eV) and the UV range ($\sim$4.1 eV) \cite{SP_sources_atomically_thin_materials_review, ultrviolet_SPE_hBN}. However, ZPL energies in hBN defect emitters tend to be random between the range of $\sim$ 1.5 to 2.2 eV, with the ZPL width scaling exponentially with temperature \cite{SP_sources_atomically_thin_materials_review}. hBN has several defect states that enable room-temperature SPEs \cite{carbon_source_SPE_hBN, first_principles_quantum_emission_hBN, hBN_cavity_optomechanics, quantum_emission_hBN_monolayers, spin_defects_hBN, structural_electronic_properties_hBN}. For instance, the negatively charged boron vacancy center ($VB^{-}$) is a promising spin qubit candidate \cite{spin_defects_hBN, ab_initio_VBneg_hBN}, and the $C_B V_N$ defect (carbon atom substitutes a boron atom and the opposite nitrogen atom is removed) displays good experimental photoluminescence lineshape \cite{first_principles_quantum_emission_hBN}. The $V_B C_N$ defect was also predicted to have a triplet ground state, making it interesting for quantum-qubit operations \cite{hBN_Triplet_GS}. Other defects include nitrogen and boron vacancies \cite{quantum_emission_hBN_monolayers, spin_defects_hBN, ab_initio_VBneg_hBN} and nitrogen \cite{hBN_Triplet_GS}, carbon \cite{carbon_source_SPE_hBN, defective_graphene_domains_hBN}, and oxygen impurities \cite{SPE_Plasma_treated_hBN, SP_sources_atomically_thin_materials_review}.
 \newline
 
-SPEs in hBN in the NIR and visible spectrum exhibit exceptional brightness ($> 10^6  \ Hz$ in the absence of Purcell enhancements) linear in-plane polarization, weak electron-phonon coupling (small phonon sidebands) and exceptional photostability \cite{SP_sources_atomically_thin_materials_review}. They also display a higher Debye-Waller factor (ratio of ZPL intensity to total emission) at around $\sim$0.82 compared to $\sim$0.13 for NV centers \cite{2D_materials_for_quantum_information_science}. Experimentation has showed that emitters have the tendency to form near the grain boundaries and flake edges, however this is not a universal characteristic \cite{SP_sources_atomically_thin_materials_review}. Additionally, emitters in hBN have shown to be susceptible to spectral diffusion, thereby affecting indistinguishability of photons \cite{SP_sources_atomically_thin_materials_review}.
+SPEs in hBN in the NIR and visible spectrum exhibit exceptional brightness ($> 10^6  \ Hz$ in the absence of Purcell enhancements) linear in-plane polarization, weak electron-phonon coupling (small phonon sidebands) and exceptional photostability \cite{SP_sources_atomically_thin_materials_review}. They also display a higher Debye-Waller factor (ratio of ZPL intensity to total emission) at around $\sim$0.82 compared to $\sim$0.13 for NV centers \cite{2D_materials_for_quantum_information_science}. Experimentation has showed that emitters have the tendency to form near the grain boundaries and flake edges, however this is not a universal characteristic \cite{SP_sources_atomically_thin_materials_review}. However, emitters in hBN have shown to be susceptible to spectral diffusion, thereby affecting indistinguishability of photons \cite{SP_sources_atomically_thin_materials_review}.
 \newline
 
 
@@ -513,10 +519,10 @@ Additional TMDCs which exist but were not explored extensively in this report in
 
 \section{DFT Simulations}\label{sec: DFT_simulations}
 \subsection{Optical Defect Requirements}\label{sec: Optical_Defect_Requirements}
-Ideally, our goal is to find an optically active defect in graphene which may be useful for quantum networks. In particular, we require photons emitted from defect states to have a minimum energy of 0.8 eV, which corresponds to a wavelength of around 1.5 $\mu m$. Additionally, the defect states must not be too close to the band edges, or else there may be problems due to phonon excitations, especially at room temperature. There must also be two states of the defect, a ground and excited state, with the ground state also having a spin. These requirements guide our search of optical defects in graphene. 
+Ideally, our goal is to find an optically active defect in graphene which may be useful for quantum network applications. In particular, we require photons emitted from defect states to have a minimum energy of 0.8 eV, which corresponds to a wavelength of around 1.5 $\mu m$. Additionally, the defect states must not be too close to the band edges, or else there may be problems due to phonon excitations, especially at room temperature. There must also be two states of the defect, a ground and excited state, with the ground state also having a spin. These requirements guide our search of optical defects in graphene. 
 
 \subsection{Method}
-The freely available DFT software \textit{Quantum Espresso} (QE) was used to perform calculations \cite{quantum_espresso}. A graphical user interface for QE, called \textit{Burai} \cite{Burai}, was also used to simplify the process of defining the supercell and specifying calculation parameters. Calculations made in \textit{BURAI} were limited to energy band and DOS calculations based on user-specified geometries, however, due to the complexities of performing calculations to predict spin properties\footnotemark (e.g. hyperfine coupling, zero-field splitting). All DFT pseudopotentials used were downloaded from the QE website. CIF files specifying the positions of atoms are available at \textbf{HERE}.
+The freely available DFT software \textit{Quantum Espresso} (QE) was used to perform calculations \cite{quantum_espresso}. A graphical user interface for QE, called \textit{BURAI} \cite{Burai}, was also used to simplify the process of defining the supercell and specifying calculation parameters. Calculations made in \textit{BURAI} were limited to energy band and DOS calculations based on user-specified geometries, however, due to the complexities of performing calculations to predict spin properties\footnotemark (e.g. hyperfine coupling, zero-field splitting). All DFT pseudopotentials used were downloaded from the QE website. CIF files specifying the positions of atoms are available at \cite{QE_Google_Drive}.
 
 \footnotetext{See \cite{first_principle_dft_spin_qubits_diamond} for an example of how spin-defect related properties in diamond were calculated using first principles DFT calculations.}
 
@@ -549,7 +555,7 @@ The unit cell geometry used is shown in Figure \ref{fig: hBN_geometry}. This str
 \end{figure}
 
 
-We can see from Figure \ref{fig: hbn_dos_band} that the band gap is about 4.5 eV, which is consistent with the literature on monolayer 2D hBN \cite{tunable_bandgap_2d_hBN, quantum_emission_hBN_monolayers, 2D_material_nanophotonics_HBN_BANDGAP, hBN_cavity_optomechanics}. 
+We can see from Figure \ref{fig: hbn_dos_band} that the bandgap is about 4.5 eV, which is consistent with the literature on monolayer 2D hBN \cite{tunable_bandgap_2d_hBN, quantum_emission_hBN_monolayers, 2D_material_nanophotonics_HBN_BANDGAP, hBN_cavity_optomechanics}. 
 
 
 \newpage
@@ -581,7 +587,7 @@ The monolayer graphene band structure can be seen in Figure \ref{fig: monolayer_
 	\label{fig: monolayer_graphene_band_dos}
 \end{figure}
 
-We can see the presence of the Dirac cones at the K points from the band structure in Figure \ref{fig: monolayer_graphene_band_dos}. This result is in agreement with the literature for monolayer graphene \cite{The_Electronic_Properties_of_Graphene, Properties_of_graphene:_a_theoretical_perspective}.
+We can see the presence of the Dirac cones at the K point from the band structure in Figure \ref{fig: monolayer_graphene_band_dos}. This result is in agreement with the literature for monolayer graphene \cite{The_Electronic_Properties_of_Graphene, Properties_of_graphene:_a_theoretical_perspective}.
 
 
 \newpage
@@ -612,7 +618,7 @@ The bilayer graphene band structure can be seen in Figure \ref{fig: bilayer_grap
 	\label{fig: bilayer_graphene_band_dos}
 \end{figure}
 
-The DOS and band structure diagrams of bilayer graphene seem to be very similar qualitatively to the monolayer graphene DOS and band structure diagram in Figure \ref{fig: monolayer_graphene_band_dos}. The gapless bilayer structure may be tuned by an external potential or strain, as was discussed in Section \ref{sec: bilayer_graphene}.
+The DOS and band structure diagrams of bilayer graphene seem to be very similar qualitatively to the monolayer graphene DOS and band structure diagram in Figure \ref{fig: monolayer_graphene_band_dos}. The gapless bilayer structure may be tuned by an external potential or strain to induce a bandgap, as was discussed in Section \ref{sec: bilayer_graphene}.
 
 
 
@@ -653,7 +659,7 @@ Clearly, the supercells used to perform DFT calculation in this section were sub
 In conclusion, we have reviewed the electronic and structural properties of graphene, discussed several promising nanoscale systems which could serve as quantum emitters and/or host spin-based defect states, and performed DFT calculations for some of these systems. While we can predict the band structure and DOS of these systems, current computational constraints did not permit calculation of defect states within the bandgap. It would be useful to simulate defect states such as vacancies, substitutions, and other defect states found in other systems as discussed in Section \ref{sec: Promising_Optical_Systems}. In particular, GNR-based defects could lead to a source of coherent qubits. It may be prudent to try to simulate various atomic-scale defects in graphene to see if these lead to the desired qualities of an optically active defect as described in Section \ref{sec: Optical_Defect_Requirements}. In such calculations, care must be taken to ensure that the supercell being considered is large enough to accurately capture the physics involved, while avoiding issues of band folding; however, such an approach may require robust computational resources.
 \newline
 
-Finally, it seems that strain engineering also has the potential to play a part in tuning the optoelectronic properties of nanoscale materials. In particular, we saw that strain was used to tune the bandgap and electronic structure of graphene and hBN-based systems. This approach may also alleviate the need to rely on substrates to tune properties of these systems, thus enabling direct coupling of spin defects to optical cavities.
+Finally, it seems that strain engineering also has the potential to play a part in tuning the optoelectronic properties of nanoscale materials. In particular, we saw that strain was used to tune the bandgap and overall electronic structure of graphene and hBN-based systems. This approach may also alleviate the need to rely on substrates to tune properties of these systems, thus enabling direct coupling of spin defects to optical cavities.
 
 
 \section{Acknowledgements}
@@ -740,7 +746,7 @@ We can also find the number of states with energy $\epsilon$ by computing:
 	g(\epsilon) = \lim_{\Delta \epsilon \to 0}\int_{\epsilon}^{\epsilon + \Delta \epsilon} D(E)dE
 \end{equation}
 
-This is sometimes referred to as the \textit{Degree of Degeneracy}. Note that the regions where the DOS is zero can be understood as an energy band gap.
+This is sometimes referred to as the \textit{Degree of Degeneracy}. Note that the regions where the DOS is zero can be understood as an energy bandgap.
 
 \newpage
 \subsection{Symmetries of the Hexagonal Lattice}
@@ -783,7 +789,7 @@ The first-order energy correction is then:
 	\braket{k|H|k} = N^{-1} \sum_j \sum_k \exp[ik\cdot(r_j - r_m)] \braket{\phi_m | H | \phi_j}
 \end{equation}
 
-Here, $\\braket{r|k} = \psi_k (r)$, and $\phi_m = \phi(r-r_m)$. Writing $\rho_m = r_m - r_j$, we get:
+Here, $\braket{r|k} = \psi_k (r)$, and $\phi_m = \phi(r-r_m)$. Writing $\rho_m = r_m - r_j$, we get:
 
 \begin{equation}\label{eq: Tight_binding_derivation_1}
 	\braket{k|H|k} = \sum_m \exp[-ik\rho_m] \int dV \phi^{*}(r-\rho_m)H\phi(r)
@@ -844,7 +850,7 @@ Hartree ansatz (decouple electronic wavefunctions):
 \psi = \psi_1(r)\psi_2(r)\cdots\psi_N(r)
 \end{equation}
 
-Problem with solving the multi-electron SE (\ref{Multi-electron SE}) is that the dimensionality of the problem scales as 3N, with N being the number of electrons. For example, \ce{{C0}_2} molecule wavefunction is a 66-dimensional function; a nanocluster of 100 Platinum atoms would require ~23,000 dimensions! Hence, more efficient techniques are required to solve large multi-body problems. 
+Problem with solving the multi-electron SE (\ref{Multi-electron SE}) is that the dimensionality of the problem scales as 3N, with N being the number of electrons. For example, the \ce{C0_2} molecule wavefunction is a 66-dimensional function; a nanocluster of 100 Platinum atoms would require $\sim$23,000 dimensions! Hence, more efficient techniques are required to solve large multi-body problems. 
 \newline
 
 Define the density of electrons at a particular position in space, r:
@@ -925,6 +931,7 @@ V_{XC}(r) = V_{XC}^{electron \ gas}[n(r)]
 \end{equation}
 
 In this approximation we used only the local density to define the approximate exchange-correlation functional, so it is called the \textit{local density approximation} (LDA). While the LDA approximation allows us to completely define the Kohn-Sham equations, it does not solve the true Schrodinger equation because we are not using the true exchange-correlation functional.
+\newline
 
 There exists another class of approximate functionals, called the \textit{Generalized Gradient Approximation} (GGA). This approximation uses information about the local electron density and local gradient in the electron density. It remains a challenge to find the form of the exchange-correlation functional that truly resembles nature, and is an active area of research.
 
